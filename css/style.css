@@ -127,10 +127,18 @@ table {
 	top: 180px;
 }
 
-.controllers .hint {
-	float: left;
-	margin-left: 23px;
+.controllers .hint, .controllers .skip {
 	color: white;
 	font-size: 36px;
 	cursor: pointer;
+}
+
+.controllers .hint {
+	float: left;
+	margin-left: 23px;
+}
+
+.controllers .skip {
+	float: right;
+	margin-right: 23px;
 }

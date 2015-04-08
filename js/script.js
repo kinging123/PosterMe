@@ -76,6 +76,11 @@ $(function () {
 		getClue();
 	});
 
+	$('.controllers .skip').click(function () {
+		if(addPoints(-20))
+			nextPoster();
+	});
+
 
 });
 
@@ -123,7 +128,7 @@ function nextPoster () {
 
 
 function getClue () {
-	if(parseInt(localStorage.getItem('points')) <= 0)return false;
+	if(parseInt(localStorage.getItem('points')) < 5)return false;
 	Parse.Cloud.run('getClue', {itemID: objectId}, {
 		success: function (data) {
 			data = JSON.parse(data);
@@ -177,8 +182,14 @@ function checkAnswer () {
 }
 
 function addPoints (amount) {
-	localStorage.setItem('points', parseInt(localStorage.getItem('points'))+amount);
+	sum = parseInt(localStorage.getItem('points'))+amount;
+	if(sum < 0)
+		return false;
+
+	localStorage.setItem('points', sum);
 	$('.pointCount').text(localStorage.getItem('points'));
+
+	return true;
 }
 
 
