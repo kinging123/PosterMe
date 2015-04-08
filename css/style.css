@@ -42,6 +42,7 @@ body {
 	position: absolute;
 	bottom: 0;
 	height: 260px;
+	width: 100%;
 }
 
 .keyboard .input {
@@ -107,4 +108,29 @@ body {
 
 table {
 	width: 100%;
+}
+
+
+.pointCount {
+	position: absolute;
+	top: 13px;
+	right: 17px;
+	background-color: rgb(41, 128, 185);
+	color: white;
+	padding: 1px 6px;
+	border-radius: 50%;
+}
+
+.controllers {
+	position: absolute;
+	width: 100%;
+	top: 180px;
+}
+
+.controllers .hint {
+	float: left;
+	margin-left: 23px;
+	color: white;
+	font-size: 36px;
+	cursor: pointer;
 }

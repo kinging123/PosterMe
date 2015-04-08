@@ -1,7 +1,11 @@
+if(!localStorage.getItem('points'))localStorage.setItem('points', '0');
+$('.pointCount').text(localStorage.getItem('points'));
+
 var isFull = false,
 	lastInput = false,
 	objectId = 0,
-	lengths = [0,0,0];
+	lengths = [0,0,0],
+	userPoints = 0;
 
 function resizeStuff () {
 	var height = $(document).height();
@@ -68,6 +72,9 @@ $(function () {
 	});
 
 
+	$('.controllers .hint').click(function () {
+		getClue();
+	});
 
 
 });
@@ -112,6 +119,27 @@ function nextPoster () {
 	});
 }
 
+
+
+
+function getClue () {
+	if(parseInt(localStorage.getItem('points')) <= 0)return false;
+	Parse.Cloud.run('getClue', {itemID: objectId}, {
+		success: function (data) {
+			data = JSON.parse(data);
+
+			$($('.input-letter')[data.position]).val(data.char);
+
+			addPoints(-5);
+
+		},
+
+		error: function (error) {
+			console.error(error);
+		}
+	});
+}
+
 function checkAnswer () {
 	var answer = '',
 		i = 0,
@@ -129,12 +157,15 @@ function checkAnswer () {
 
 	Parse.Cloud.run('submitAnswer', {itemID: objectId, guess: answer.trim()}, {
 		success: function (data) {
-			if(data == 'true') {
+			data = JSON.parse(data);
+			if(data[0] == true) {
 				alert("Yay!");
 				nextPoster();
 			} else {
 				alert("Wrong! try again...");
 			}
+
+			addPoints(data[1]);
 		},
 
 		error: function (error) {
@@ -144,3 +175,10 @@ function checkAnswer () {
 
 	
 }
+
+function addPoints (amount) {
+	localStorage.setItem('points', parseInt(localStorage.getItem('points'))+amount);
+	$('.pointCount').text(localStorage.getItem('points'));
+}
+
+
