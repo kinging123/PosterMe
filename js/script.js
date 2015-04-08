@@ -2,7 +2,21 @@ var isFull = false,
 	lastInput = false,
 	objectId = 0,
 	lengths = [0,0,0];
+
+function resizeStuff () {
+	var height = $(document).height();
+
+	$('#container').height(height-70);
+
+	$('.poster').height(height-70-260 - 25);
+}
 $(function () {
+	resizeStuff();
+
+	$(window).resize(function () {
+		resizeStuff();
+	});
+
 	Parse.initialize('7qm08CMRj7OIpwwMnapjlVFNyAEz68ntlm0UOsdJ', 'ZMRq4gZPgnPyWO5IGezljL6SxiXzFsfiJZS4nJUj');
 
 	nextPoster();
@@ -69,7 +83,7 @@ function nextPoster () {
 			objectId = data.objectId;
 			lengths = data.name_length;
 
-			$('.poster').css('background-image', 'url(' + image + ')');
+			$('.poster img').attr('src',  image );
 
 			for (var i = 0; i < letters.length; i++) {
 				$this = $('.letter')[i];
