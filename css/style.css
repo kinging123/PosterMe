@@ -1,0 +1,106 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,300,700);
+
+body {
+	font-family: 'Roboto', sans-serif;
+}
+
+.navbar-header, .navbar-nav, .navbar-nav>li {
+	/*float: left;*/
+}
+
+.navbar.navbar-default {
+	display: flex;
+	margin-bottom: 0;
+}
+
+#main-nav {
+	flex: 1;
+	flex-grow: 2;
+	text-align: center;
+	padding-right: 56px;
+}
+
+#main-nav .navbar-nav>li>a {
+	padding: 15px 21px;
+}
+
+#container {
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	align-content: stretch;
+	justify-content: flex-start;
+	height: calc(100vh - 53px);
+
+	background-color: #34495E; /** Wet Asphalt **/
+	margin: 0;
+}
+
+.keyboard {
+	flex-basis: 300px;
+	background-color: #2980B9;
+}
+
+.keyboard .input {
+	text-align: center;
+	padding-top: 20px
+}
+
+.keyboard .input input {
+	width: 30px;
+	padding: 0 0;
+	text-align: center;
+	font-size: 26px;
+	height: 34px;
+	line-height: 33px;
+	border: 0;
+	border-radius: 0;
+	border-bottom: 1px solid white;
+	background: none;
+	color: white;
+	font-weight: bold;
+}
+
+.keyboard .input .form-group, .keyboard .input .divider {
+	display: inline-block;
+	margin: 3px;
+}
+
+
+.keyboard .input .divider {
+	margin: 0 10px;
+}
+
+.keyboard .word-bank {
+	display: block;
+	margin: 10px;
+	text-align: center;
+}
+
+.keyboard .word-bank button {
+	padding: 5px 9px;
+	margin: 3px 0px;
+	width: 90%;
+	font-weight: 300;
+	background-color: transparent;
+	font-size: 26px;
+	line-height: 20px;
+}
+
+
+.poster {
+	flex: 1;
+	flex-grow: 2;
+
+	background-image: url(../img/posters/imitation_game.jpg);
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+
+	margin: 10px;
+}
+
+
+table {
+	width: 100%;
+}
