@@ -89,15 +89,11 @@ body {
 
 
 .poster {
-	flex: 1;
-	flex-grow: 2;
-
-	background-image: url(../img/posters/imitation_game.jpg);
 	background-size: contain;
 	background-repeat: no-repeat;
 	background-position: center;
-
 	margin: 10px;
+	height: calc(100vh - 300px );
 }
 
 
