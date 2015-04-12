@@ -21,4 +21,10 @@
     <preference name="orientation" value="portrait" />
     <preference name="permissions" value="none"/>
 
+    <icon src="logo.png" />
+    <icon src="logos/drawable-mdpi/ic_logo.png" gap:platform="android" gap:qualifier="mdpi" />
+    <icon src="logos/drawable-hdpi/ic_logo.png" gap:platform="android" gap:qualifier="hdpi" />
+    <icon src="logos/drawable-xhdpi/ic_logo.png" gap:platform="android" gap:qualifier="xhdpi" />
+    <icon src="logos/drawable-xxhdpi/ic_logo.png" gap:platform="android" gap:qualifier="xxhdpi" />
+
 </widget>
