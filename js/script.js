@@ -21,7 +21,7 @@ $(function () {
 		resizeStuff();
 	});
 
-	Parse.initialize('7qm08CMRj7OIpwwMnapjlVFNyAEz68ntlm0UOsdJ', 'ZMRq4gZPgnPyWO5IGezljL6SxiXzFsfiJZS4nJUj');
+	Parse.initialize('**************', '*************'); // Our secret key!
 
 	nextPoster();
 
